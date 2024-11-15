@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Now_Weather from './pages/Now_Weather'
+import Now_Weather_Detail from './pages/Now_Weather_Detail'
+import Weather_5Days from './pages/Weather_5Days'
+import NotFound from './pages/NotFound'
+
+import Banner from './components/Banner'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   return (
+      <Routes>
+         <Route path="/" element={<Home />} />
+         {/* <Route path="/now_weather" element={<Now_Weather />} />
+         <Route path="/now_weather_detail" element={<Now_Weather_Detail />} />
+         <Route path="/" element={<Weather_5Days />} />
+         <Route path="/" element={<Weather_5Days />} />
+         <Route path="/" element={<Weather_5Days />} />
+         <Route path="/*" element={<NotFound />} /> */}
+      </Routes>
+   )
 }
 
-export default App;
+export default App
