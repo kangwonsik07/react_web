@@ -1,7 +1,42 @@
-.search .search_form {
-   /* width: 800px; */
+/* .search .search_form {
+  width: 800px;
    max-width: 100%;
    margin: 0 auto;
    display: flex;
    align-items: center;
+} */
+
+/* Banner.css */
+.search {
+   height: 100vh; /* 화면 전체 높이 */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: transparent; /* 배경 투명 */
+}
+
+.search_form {
+   display: flex;
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0.9); /* 약간 투명한 흰색 배경 */
+   border-radius: 25px;
+   padding: 10px 15px;
+   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search_form button {
+   background: none;
+   border: none;
+   cursor: pointer;
+   padding: 0;
+   margin-right: 8px; /* 버튼과 입력 필드 간격 조정 */
+}
+
+.search_form .MuiTextField-root {
+   margin: 0;
+}
+
+.search_form input {
+   border: none;
+   outline: none;
 }
