@@ -6,18 +6,15 @@ import Weather_5Days_Web from './pages/Weather_5Days_Web'
 
 import NotFound from './pages/NotFound'
 
-import Banner from './components/Banner'
-
 function App() {
    return (
       <Routes>
-         {/* <Route path="/" element={<Home />} /> */}
+         <Route path="/" element={<Home />} />
          <Route path="/now_weather" element={<Now_Weather />} />
          <Route path="/now_weather_detail" element={<Now_Weather_Detail />} />
          <Route path="/Weather_5Days_Web" element={<Weather_5Days_Web />} />
 
-         {/*
-         <Route path="/*" element={<NotFound />} /> */}
+         {/* <Route path="/*" element={<NotFound />} /> */}
       </Routes>
    )
 }

@@ -2,14 +2,17 @@
 import Today_weather_detail from '../components/Today_weather_detail'
 import Banner from '../components/Banner'
 import Footer from '../components/Footer'
+import '../style/Now_Weather.css'
 
 function Now_Weather_Detail() {
    return (
       <div>
-         <div>
+         <header>
             <Banner />
+         </header>
+         <main>
             <Today_weather_detail />
-         </div>
+         </main>
          <Footer />
       </div>
    )

@@ -9,11 +9,13 @@ import '../style/Now_Weather.css'
 function Now_Weather() {
    return (
       <div>
-         <div>
+         <header>
             <Banner />
+         </header>
+         <main>
             <Today_weather />
             <Weather_5Days />
-         </div>
+         </main>
          <Footer />
       </div>
    )
