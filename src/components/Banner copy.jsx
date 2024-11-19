@@ -4,13 +4,14 @@ import SearchIcon from '@mui/icons-material/Search'
 import Button from '@mui/material/Button'
 import React, { useCallback, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { fetchWeather } from '../components/slider/weatherSlider'
+import { fetchWeather } from '../redux/weatherSlice'
 import { useNavigate } from 'react-router-dom'
 
 function Banner() {
+   const [city, setCity] = useState('')
    const dispatch = useDispatch()
    const navigate = useNavigate()
-   const [city, setCity] = useState('')
+
    // 입력 변경 핸들러
    const handleOnChange = useCallback((e) => setCity(e.target.value), [])
 
@@ -21,7 +22,7 @@ function Banner() {
 
          if (city.trim()) {
             dispatch(fetchWeather(city)) // Redux 상태 업데이트
-            navigate('/now_weather') // 검색 후 now_weather 페이지로 이동
+            navigate('/') // 페이지 이동
          }
       },
       [city, dispatch, navigate]
