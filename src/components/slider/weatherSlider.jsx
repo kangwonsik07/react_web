@@ -1,49 +1,57 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios'
 
-// API 키와 URL 설정
-const API_KEY = '9997c85cdc80f831ec633b790ce79430'
-const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather'
+import { getTodayWeather, get5DayWeather } from '../../api/weatherApi'
 
 // 비동기 Thunk 함수
-export const fetchWeather = createAsyncThunk('weather/fetchWeather', async (city, { rejectWithValue }) => {
-   try {
-      const response = await axios.get(BASE_URL, {
-         params: {
-            q: city,
-            units: 'metric',
-            lang: 'kr',
-            appid: API_KEY,
-         },
-      })
-      return response.data // API 응답 데이터 반환
-   } catch (error) {
-      return rejectWithValue(error.response?.data?.message || 'API 요청 오류')
-   }
+export const fetchWeather = createAsyncThunk('weather/fetchWeather', async (city) => {
+   const response = await getTodayWeather(city)
+   console.log('API 응답 데이터 getTodayWeather:', response)
+   return response
+})
+
+export const fetch5DayWeather = createAsyncThunk('/weather/fetch5DayWeather', async (city) => {
+   const response = await get5DayWeather(city)
+   console.log('API 응답 데이터get5DayWeather:', response)
+   return response
 })
 
 // Redux Slice 생성
 const weatherSlice = createSlice({
    name: 'weather',
    initialState: {
-      data: null, // 날씨 데이터
-      status: 'idle', // 요청 상태: 'idle' | 'loading' | 'succeeded' | 'failed'
-      error: null, // 에러 메시지
+      today: { data: null, loading: false, error: null },
+      forecast: { data: null, loading: false, error: null },
    },
    reducers: {},
    extraReducers: (builder) => {
       builder
          .addCase(fetchWeather.pending, (state) => {
-            state.status = 'loading'
-            state.error = null
+            state.today.loading = true
+            state.today.error = null
+            console.log('todaypending.state.data:', state.data)
          })
          .addCase(fetchWeather.fulfilled, (state, action) => {
-            state.status = 'succeeded'
-            state.data = action.payload
+            state.today.loading = false
+            state.today.data = action.payload
+            console.log('todayfulfilled.state.data:', state.data)
          })
          .addCase(fetchWeather.rejected, (state, action) => {
-            state.status = 'failed'
-            state.error = action.payload
+            state.today.loading = false
+            state.today.error = action.error.message
+         })
+         .addCase(fetch5DayWeather.pending, (state) => {
+            state.forecast.loading = true
+            state.forecast.error = null
+            console.log('forecastpending.state.data:', state.data)
+         })
+         .addCase(fetch5DayWeather.fulfilled, (state, action) => {
+            state.forecast.loading = false
+            state.forecast.data = action.payload
+            console.log('forecastfulfilled.state.data:', state.data)
+         })
+         .addCase(fetch5DayWeather.rejected, (state, action) => {
+            state.forecast.loading = false
+            state.forecast.error = action.error.message
          })
    },
 })

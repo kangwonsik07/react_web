@@ -4,8 +4,19 @@ import SearchIcon from '@mui/icons-material/Search'
 import Button from '@mui/material/Button'
 import React, { useCallback, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { fetchWeather } from '../components/slider/weatherSlider'
+import { fetchWeather, fetch5DayWeather } from '../components/slider/weatherSlider'
 import { useNavigate } from 'react-router-dom'
+
+const koreanMapping = {
+   서울: 'seoul',
+   인천: 'incheon',
+   부산: 'busan',
+   대구: 'daegu',
+   대전: 'daejeon',
+   광주: 'gwangju',
+   울산: 'ulsan',
+   수원: 'suwon',
+}
 
 function Banner() {
    const dispatch = useDispatch()
@@ -19,8 +30,10 @@ function Banner() {
       (e) => {
          e.preventDefault()
 
-         if (city.trim()) {
-            dispatch(fetchWeather(city)) // Redux 상태 업데이트
+         const englishcity = koreanMapping[city] || city
+         if (englishcity.trim()) {
+            dispatch(fetchWeather(englishcity))
+            dispatch(fetch5DayWeather(englishcity)) // Redux 상태 업데이트
             navigate('/now_weather') // 검색 후 now_weather 페이지로 이동
          }
       },
@@ -31,7 +44,7 @@ function Banner() {
       <div className="search">
          <form className="search_form" onSubmit={handleSearch}>
             <Button type="submit" startIcon={<SearchIcon />} />
-            <TextField className="text" id="outlined-basic" variant="outlined" label="도시를 입력하세요(영어)" value={city} onChange={handleOnChange} />
+            <TextField className="text" id="outlined-basic" variant="outlined" label="도시를 입력하세요" value={city} onChange={handleOnChange} />
          </form>
       </div>
    )
