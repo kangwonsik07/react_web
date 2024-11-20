@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
 import { useEffect } from 'react'
 import fetchWeather from './slider/weatherSlider'
@@ -61,9 +61,11 @@ function Today_weather() {
 
                {/* 하단 상세정보 링크 */}
                <div className="weather-footer">
-                  <a href={'/now_weather_detail'} rel="noopener noreferrer">
+                  <Link to="/now_weather_detail">
+                     {/* {console.log('Link로 전달되는 데이터:', weathers)}
+                     {console.log('데이터 크기:', JSON.stringify(weathers).length, 'bytes')} */}
                      추가 상세 정보
-                  </a>
+                  </Link>
                </div>
             </>
          )}
