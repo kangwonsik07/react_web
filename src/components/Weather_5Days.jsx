@@ -1,7 +1,7 @@
 import React from 'react'
 import './css/Weather_5Days.css'
 import { useSelector, useDispatch } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import { useEffect } from 'react'
 import { fetch5DayWeather } from './slider/weatherSlider'
 
@@ -72,7 +72,7 @@ function Weather_5Days() {
 
          {/* 하단 상세정보 링크 */}
          <div className="weather-footer">
-            <a>추가 상세 정보</a>
+            <Link to="/Weather_5Days_Web">추가 상세 정보</Link>
          </div>
       </div>
    )

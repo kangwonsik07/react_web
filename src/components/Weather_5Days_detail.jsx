@@ -1,12 +1,33 @@
 import './css/Weather_5Days_detail.css'
+import { useSelector } from 'react-redux'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper/modules'
+import { useState } from 'react'
+import 'swiper/swiper-bundle.css'
 
 function Weather_5Days_detail() {
+   const { data: weathers } = useSelector((state) => state.weather.forecast)
+   if (!weathers) return <p>데이터를 로드할 수 없습니다</p>
+   console.log('Weather_5Days_detail:', weathers)
+
+   const filterweathers = weathers.list.filter((item) => {
+      return item.dt_txt
+   })
+
+   console.log(filterweathers)
    return (
       <div className="weather-tomorrow-card">
          {/* 헤더 */}
+
          <div className="weather-tomorrow-header">
-            인천 내일 시간
-            <span className="arrow-icon">→</span>
+            <Swiper navigation={true} modules={[Navigation]} className="mySwiper" slidesPerView={1} spaceBetween={5}>
+               <SwiperSlide>
+                  <div>1</div>
+               </SwiperSlide>
+               <SwiperSlide>
+                  <div>1</div>
+               </SwiperSlide>
+            </Swiper>
          </div>
 
          {/* 시간별 데이터 */}
@@ -19,7 +40,6 @@ function Weather_5Days_detail() {
             <div className="weather-hour-item">15시</div>
             <div className="weather-hour-item">18시</div>
             <div className="weather-hour-item">21시</div>
-            <div className="weather-hour-item">24시</div>
          </div>
 
          {/* 본문 */}

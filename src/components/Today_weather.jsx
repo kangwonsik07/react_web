@@ -61,11 +61,7 @@ function Today_weather() {
 
                {/* 하단 상세정보 링크 */}
                <div className="weather-footer">
-                  <Link to="/now_weather_detail">
-                     {/* {console.log('Link로 전달되는 데이터:', weathers)}
-                     {console.log('데이터 크기:', JSON.stringify(weathers).length, 'bytes')} */}
-                     추가 상세 정보
-                  </Link>
+                  <Link to="/Now_Weather_Detail">추가 상세 정보</Link>
                </div>
             </>
          )}

@@ -47,3 +47,16 @@
 .weather-stats div {
    text-align: left;
 }
+
+.detailed-footer {
+   text-align: center;
+   font-size: 14px;
+   color: #007bff;
+   cursor: pointer;
+   padding: 10px;
+   border-top: 1px solid #ddd;
+}
+
+.detailed-footer:hover {
+   text-decoration: underline;
+}

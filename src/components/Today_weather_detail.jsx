@@ -1,6 +1,6 @@
 import React from 'react'
 import './css/Today_weather_detail.css'
-
+import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 const koreanMapping = {
@@ -80,7 +80,7 @@ function Today_weather_detail() {
 
             {/* 하단 상세 정보 링크 */}
             <div className="detailed-footer">
-               <a href="/tomorrow-weather">내일 날씨 정보 →</a>
+               <Link to="/Weather_5Days_Web">추가 상세 정보</Link>
             </div>
          </div>
       </div>
