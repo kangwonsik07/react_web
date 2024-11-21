@@ -15,7 +15,7 @@ function App() {
          <Route path="/Now_Weather_Detail" element={<Now_Weather_Detail />} />
          <Route path="/Weather_5Days_Web" element={<Weather_5Days_Web />} />
 
-         {/* <Route path="/*" element={<NotFound />} /> */}
+         <Route path="/*" element={<NotFound />} />
       </Routes>
    )
 }
