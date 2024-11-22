@@ -12,7 +12,7 @@ header {
    align-items: center;
    position: relative;
    flex-direction: column;
-   background-color: cadetblue;
+   /* background-color: cadetblue; */
 }
 
 main {

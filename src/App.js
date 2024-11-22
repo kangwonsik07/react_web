@@ -5,7 +5,6 @@ import Now_Weather_Detail from './pages/Now_Weather_Detail'
 import Weather_5Days_Web from './pages/Weather_5Days_Web'
 
 import NotFound from './pages/NotFound'
-import Today_weather_detail from './components/Today_weather_detail'
 
 function App() {
    return (

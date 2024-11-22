@@ -4,8 +4,9 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import { useState, useEffect, useMemo } from 'react'
 import 'swiper/swiper-bundle.css'
-import { fetch5DayWeather } from './slider/weatherSlider' // Redux Thunk 함수
+import { fetch5DayWeather } from './slider/weatherSlider'
 
+// 이페이지는 공부 필요
 function Weather_5Days_detail() {
    const dispatch = useDispatch()
    const { data: weathers, loading, error } = useSelector((state) => state.weather.forecast)

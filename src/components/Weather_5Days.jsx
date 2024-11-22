@@ -5,6 +5,7 @@ import { useParams, Link } from 'react-router-dom'
 import { useEffect } from 'react'
 import { fetch5DayWeather } from './slider/weatherSlider'
 
+// 한영 변환
 const koreanMapping = {
    seoul: '서울',
    incheon: '인천',
@@ -15,6 +16,7 @@ const koreanMapping = {
    ulsan: '울산',
    suwon: '수원',
 }
+
 function Weather_5Days() {
    const { city } = useParams()
    const dispatch = useDispatch()
@@ -27,6 +29,7 @@ function Weather_5Days() {
 
    if (loading) return <p>Loading...</p>
    if (error) return <p>Error: {error}</p>
+
    console.log(weathers)
 
    const exTimeForecast = (forecastData) => {

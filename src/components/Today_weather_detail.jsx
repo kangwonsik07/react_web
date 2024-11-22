@@ -20,6 +20,7 @@ function Today_weather_detail() {
    console.log(weathers)
    const koreancity = koreanMapping[weathers.name.toLowerCase()] || weathers.name
 
+   // 날자 변경
    const now = new Date()
    const currentDate = now.toLocaleDateString('ko-KR') // 현재 날짜 (YYYY. MM. DD.)
    const currentTime = now.toLocaleTimeString('ko-KR', {
@@ -28,6 +29,7 @@ function Today_weather_detail() {
       second: '2-digit',
    })
 
+   // 일출 일몰시간 계산법
    function convertSuntime(timestamp: number) {
       // 밀리세컨즈로 변환하여 Date 객체 생성
       const date = new Date(timestamp * 1000)

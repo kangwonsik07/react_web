@@ -22,10 +22,9 @@ function Banner() {
    const dispatch = useDispatch()
    const navigate = useNavigate()
    const [city, setCity] = useState('')
-   // 입력 변경 핸들러
+
    const handleOnChange = useCallback((e) => setCity(e.target.value), [])
 
-   // 검색 핸들러
    const handleSearch = useCallback(
       (e) => {
          e.preventDefault()
@@ -33,8 +32,8 @@ function Banner() {
          const englishcity = koreanMapping[city] || city
          if (englishcity.trim()) {
             dispatch(fetchWeather(englishcity))
-            dispatch(fetch5DayWeather(englishcity)) // Redux 상태 업데이트
-            navigate('/now_weather') // 검색 후 now_weather 페이지로 이동
+            dispatch(fetch5DayWeather(englishcity))
+            navigate('/now_weather')
          }
       },
       [city, dispatch, navigate]
