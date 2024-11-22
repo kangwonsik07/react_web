@@ -65,7 +65,7 @@ function Weather_5Days_detail() {
    const handleTimeClick = (timeData) => {
       setSelectedTimeData(timeData)
    }
-   console.log('timeSlots:', timeSlots)
+
    // 로딩 및 에러 처리
    if (loading) return <p>날씨 데이터를 로드 중입니다...</p>
    if (error) return <p>데이터 로드 중 오류가 발생했습니다: {error}</p>

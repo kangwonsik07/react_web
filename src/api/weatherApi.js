@@ -20,7 +20,7 @@ export const getTodayWeather = async (city) => {
             appid: AUTH_KEY,
          },
       })
-      console.log('getTodayWeather 응답 데이터:', response.data)
+
       return response.data
    } catch (error) {
       console.error(`현재 날씨 API 요청 오류: ${error.message}`)

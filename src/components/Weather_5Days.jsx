@@ -30,7 +30,7 @@ function Weather_5Days() {
    if (loading) return <p>Loading...</p>
    if (error) return <p>Error: {error}</p>
 
-   console.log(weathers)
+   
 
    const exTimeForecast = (forecastData) => {
       // 현재 날짜 기준 다음 날짜 계산
@@ -46,7 +46,7 @@ function Weather_5Days() {
    }
 
    const exTime06Forecast = exTimeForecast(weathers)
-   console.log('exTime06Forecast:', exTime06Forecast)
+   )
 
    const koreancity = koreanMapping[weathers.city.name.toLowerCase()] || weathers.city.name
    return (

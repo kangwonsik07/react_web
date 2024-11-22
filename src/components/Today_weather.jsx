@@ -30,7 +30,6 @@ function Today_weather() {
 
    if (loading) return <p>Loading...</p>
    if (error) return <p>Error: {error}</p>
-   console.log(weathers)
 
    const koreancity = koreanMapping[weathers.name.toLowerCase()] || weathers.name
 

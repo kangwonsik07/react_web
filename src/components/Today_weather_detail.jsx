@@ -17,7 +17,7 @@ const koreanMapping = {
 function Today_weather_detail() {
    const { data: weathers } = useSelector((state) => state.weather.today)
    if (!weathers) return <p>데이터를 로드할 수 없습니다.</p>
-   console.log(weathers)
+
    const koreancity = koreanMapping[weathers.name.toLowerCase()] || weathers.name
 
    // 날자 변경
