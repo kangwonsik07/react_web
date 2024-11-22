@@ -63,7 +63,7 @@ function Weather_5Days() {
             </div>
 
             {/* 온도 */}
-            <div className="weather-temp">{exTime06Forecast.main.temp}</div>
+            <div className="weather-temp">{exTime06Forecast.main.temp}°C</div>
 
             {/* 추가 상세 정보 */}
             <div className="weather-details">
